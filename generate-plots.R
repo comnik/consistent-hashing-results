@@ -11,7 +11,7 @@ generatePlots <- function(numVnodes) {
     yMax <- 350000
 
     modulo  <- read.csv(file=inputName("modulo", numVnodes),    sep=",", head=FALSE)
-    md5     <- read.csv(file=inputName("md5", numVnodes),       sep=",", head=FALSE)
+    stdhash <- read.csv(file=inputName("stdhash", numVnodes),   sep=",", head=FALSE)
     murmur3 <- read.csv(file=inputName("murmur3", numVnodes),   sep=",", head=FALSE)
 
     png(outputName("modulo", numVnodes))
@@ -23,8 +23,8 @@ generatePlots <- function(numVnodes) {
             main = ""   )
     dev.off()
 
-    png(outputName("md5", numVnodes))
-    Nodes <- md5$V1
+    png(outputName("stdhash", numVnodes))
+    Nodes <- stdhash$V1
     hist(   Nodes, 
             breaks = c(0,1,2,3,4,5,6,7,8,9,10), 
             xlim = c(0, xMax), 
