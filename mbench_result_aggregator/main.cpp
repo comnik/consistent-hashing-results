@@ -85,7 +85,7 @@ void printResults(const char* file) {
     }
     sqlite3_finalize(stmt);
     auto fetchQuery = boost::str(boost::format(
-        "SELECT tx, rt/%1% "
+        "SELECT tx, ((end - start)/%1%) as rt"
         "FROM results "
         //"WHERE start > %2% AND end < %3% AND success LIKE 'true' "
     ) % onemillion);// % min % max);
