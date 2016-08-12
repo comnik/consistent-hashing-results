@@ -85,10 +85,11 @@ void printResults(const char* file) {
     }
     sqlite3_finalize(stmt);
     auto fetchQuery = boost::str(boost::format(
-        "SELECT tx, ((end - start)/%1%) as rt"
+        "SELECT 'transaction', ((end - start)/%1%) as rt "
         "FROM results "
         //"WHERE start > %2% AND end < %3% AND success LIKE 'true' "
     ) % onemillion);// % min % max);
+    std::cout << fetchQuery.c_str() << std::endl;
     sqlOk(sqlite3_prepare_v2(db, fetchQuery.c_str(), -1, &stmt, nullptr));
     std::map<std::string, std::vector<float>> results;
     while ((s = sqlite3_step(stmt)) != SQLITE_DONE) {
