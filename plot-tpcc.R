@@ -5,7 +5,7 @@ tpccPlot <- function(name) {
 
     data <- read.csv(file=paste(name, ".csv", sep=""), sep=",", head=TRUE)
 
-    png(paste(name, ".png", sep=""))
+    pdf(paste("out/", name, ".pdf", sep=""))
     
     dt <- (data$end - data$start)
     dt <- dt[seq(2, length(dt))]
