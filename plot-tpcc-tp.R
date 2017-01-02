@@ -19,11 +19,8 @@ tpccThroughput <- function (name) {
     plot(baseTp$seconds, baseTp$count, type="s", axes=FALSE, ann=FALSE)
     lines(tp$seconds, tp$count, type="s", col="blue", ann=FALSE)
 
-    # Node addition
-    # abline(v=24, lty=2)
-
-    # Node removal
-    # abline(v=11, lty=2)
+    # Time indicator
+    # abline(v=34, lty=2, lwd=3.0)
 
     axis(1, at=10*0:length(data$end))
     axis(2, las=1, at=100*0:endRange[2])
